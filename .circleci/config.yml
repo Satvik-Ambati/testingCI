@@ -33,6 +33,9 @@ jobs:
           command: npm test --coverage
 
       - run:
+          name: Install awscli
+          command: sudo pip install awscli
+      - run:
           name: Deploy application
-          command: sls deploy --stage pre
-
+        #  command: sls deploy --stage pre
+          command: aws ec2 sync jekyll/_site/docs s3://circle-production-static-site/docs/ --delete
