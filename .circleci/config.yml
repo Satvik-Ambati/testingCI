@@ -34,7 +34,7 @@ jobs:
           command: npm test --coverage
 
       - run:
-          name: Install awscli
+          name: Install  awscli
           command: sudo pip3 install awscli --upgrade --user
       - run:
           name: Deploy application
