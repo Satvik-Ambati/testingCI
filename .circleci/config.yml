@@ -3,6 +3,8 @@ jobs:
   build:
     docker:
       - image: circleci/node:8.10 
+      - image: circleci/python:3.6-stretch-node-browsers-legacy
+
 
     working_directory: ~/repo
 
@@ -21,19 +23,9 @@ jobs:
           command: |
             sudo npm i -g serverless
             npm install
-      
-      - image: circleci/python3:3.6.4        
-
-    steps:
-      - checkout
-      - run:
-          name: Install python3
-          command: |
-            sudo pip install pipenv
-            pipenv install  
-       #     sudo apt-get install python3 -user
-        #    curl -O https://bootstrap.pypa.io/get-pip.py
-        #    python3 get-pip.py
+          #  sudo apt-get install pyhton3
+          #  curl -O https://bootstrap.pypa.io/get-pip.py
+          #  python3 get-pip.py
             
 
       - save_cache:
@@ -51,5 +43,5 @@ jobs:
           command: sudo pip3 install awscli -upgrade
       - run:
           name: Deploy application
-          #command: sls deploy --stage pre
+          command: sls deploy --stage pre
           command: aws s3 sync . s3://circle-production-static-site/docs/ --delete
