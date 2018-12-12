@@ -33,10 +33,10 @@ jobs:
           name: Run tests with coverage
           command: npm test --coverage
 
-      - run:
-          name: Install  awscli
-          command: sudo pip3 install awscli --upgrade --user
+      #- run:
+       #   name: Install  awscli
+        #  command: sudo pip3 install awscli --upgrade --user
       - run:
           name: Deploy application
-        #  command: sls deploy --stage pre
-          command: aws ec2 sync jekyll/_site/docs s3://circle-production-static-site/docs/ --delete
+          command: sls deploy --stage pre
+        #  command: aws ec2 sync jekyll/_site/docs s3://circle-production-static-site/docs/ --delete
