@@ -30,7 +30,7 @@ jobs:
             sudo apt-get -y -qq install python-dev
             curl -O https://bootstrap.pypa.io/get-pip.py
             python get-pip.py --user
-            pip-18.1 install awscli --upgrade --user
+            sudo pip install awscli --upgrade --user
           #  sudo apt-get install pyhton3
           #  curl -O https://bootstrap.pypa.io/get-pip.py
           #  python3 get-pip.py
