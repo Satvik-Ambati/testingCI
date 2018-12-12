@@ -3,7 +3,7 @@ jobs:
   build:
     docker:
       - image: circleci/node:8.10 
-      - image: circleci/python:3.6-node-browsers
+      #- image: circleci/python:3.6-node-browsers
 
 
     working_directory: ~/repo
@@ -23,6 +23,11 @@ jobs:
           command: |
             sudo npm i -g serverless
             npm install
+            apt-get -y -qq update
+            apt-get -y -qq install python3.4-dev
+            curl -O https://bootstrap.pypa.io/get-pip.py
+            python3.4 get-pip.py --user
+            pip install awscli --upgrade --user
           #  sudo apt-get install pyhton3
           #  curl -O https://bootstrap.pypa.io/get-pip.py
           #  python3 get-pip.py
@@ -38,9 +43,6 @@ jobs:
           name: Run tests with coverage
           command: npm test --coverage
 
-      - run:
-          name: Install  awscli
-          command: sudo pip3 install awscli -upgrade
       - run:
           name: Deploy application
           #command: sls deploy --stage pre
