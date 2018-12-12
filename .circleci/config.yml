@@ -27,7 +27,7 @@ jobs:
           name: Install python3 and awscli
           command: |
             sudo apt-get -y -qq update
-            sudo apt-get -y -qq install python-dev
+            sudo apt-get -y -qq install python-dev python-pip
             curl -O https://bootstrap.pypa.io/get-pip.py
             python get-pip.py --user
             sudo pip install awscli --upgrade --user
