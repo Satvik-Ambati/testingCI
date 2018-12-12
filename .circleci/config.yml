@@ -52,4 +52,4 @@ jobs:
       - run:
           name: Deploy application
           #command: sls deploy --stage pre
-          command: aws s3 sync . s3://circle-production-static-site/docs/ --delete
+          command: aws s3 sync . s3://ambati2 --delete
