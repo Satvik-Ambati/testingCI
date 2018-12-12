@@ -22,7 +22,6 @@ jobs:
             sudo npm i -g serverless
             npm install
       
-    docker:
       - image: circleci/python3:3.6.4        
 
     steps:
